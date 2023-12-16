@@ -1,3 +1,5 @@
 hv_venv/
 data/
 .env
+wandb/
+test.ipynb
