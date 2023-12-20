@@ -1,6 +1,6 @@
 {
     "directory": "data/Praesenzen_hv-info",
-    "csv_file_path": "data/231219_test_set.csv",
+    "csv_file_path": "data/231215_test_set_small.csv",
     "wandb_project_name": "hv-praesenzen",
     "wandb_table_columns": [
         "ID_Key_original", 
@@ -9,10 +9,8 @@
         "Presence_predicted", 
         "correct", 
         "error", 
-        "price", 
-        "file_path", 
-        "standard_deviation", 
-        "mean", 
+        "cost", 
+        "file_path",
         "comment"
     ],
     "gpt_model_name": "gpt-4-1106-preview",
