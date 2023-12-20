@@ -168,30 +168,8 @@ for index, row in tqdm(df.iloc[start_index:end_index].iterrows(), total=total_ro
         "comment": ""
     }
 
-    # Initialize variables
-
-    # error variable
-    error = False
-
-    # error during page assessment
-    error_during_page_assessment = False
-
-    # alternative document structure, i.e., no table but more like a list
+    # set flag for alternative document structure, i.e., no table but more like a list
     alternative_document_structure = False
-
-    # total cost pf processing the document
-    cost = 0
-
-    # standard deviation of the highest percentage of each document to the other values for the same document
-    std_dev = 0
-
-    # mean of the highest percentage of each document to the other values for the same document
-    mean = 0
-
-    # add a comment collection variable for the case some pages dont output a number
-    comment_collection = ""
-
-    prediction_correct = False
 
     id_value = str(int(row['ID_Key_original']))
     year_value = str(int(row['Year_original']))
