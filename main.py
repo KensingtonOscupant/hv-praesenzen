@@ -27,7 +27,7 @@ directory = config['directory']
 
 run = wandb.init(project=config['wandb_project_name'])
 # Define W&B Table to store results
-columns = config['wandb_table_columns']
+columns = config['wandb_table_columns_prod']
 table = wandb.Table(columns=columns)
 # log a row of data to the W&B table
 def log_to_wandb(data):
@@ -56,16 +56,19 @@ if __name__ == "__main__":
     # Iterate over the DataFrame slice with tqdm
     for index, row in tqdm(df.iloc[start_index:end_index].iterrows(), total=total_rows):
 
+        # if Presence is already present, skip this row
+        if pd.notna(row['Presence']):
+            continue
+
         """
         Initialize the default data dictionary for each iteration. 
         This will be updated with the results of each step and then logged to W&B.
         """
         data = {
-            "ID_Key_original": str(int(row['ID_Key_original'])),
-            "Year_original": str(int(row['Year_original'])),
-            "Presence_enhanced": row['Presence_enhanced'],
-            "Presence_predicted": None,
-            "correct": None,
+            "unique_id": str(row['ID']),
+            "ID_Key": str(int(row['ID_Key'])),
+            "Year": str(int(row['Year'])),
+            "Presence": None,
             "error": None,
             "cost": 0,
             "header_row": None,
@@ -77,8 +80,8 @@ if __name__ == "__main__":
         # set flag for alternative document structure, i.e., no table but more like a list
         alternative_document_structure = False
 
-        id_value = str(int(row['ID_Key_original']))
-        year_suffix = str(int(row['Year_original']))[-2:]
+        id_value = str(int(row['ID_Key']))
+        year_suffix = str(int(row['Year']))[-2:]
 
         # find the subdirectory where all reports for the same ID are located
         subdirectory_path = find_subdirectory(directory, id_value)
@@ -94,7 +97,11 @@ if __name__ == "__main__":
         # Find the first unprocessed file
         unprocessed_files = [file for file in matching_files if file not in processed_files[key]]
         if not unprocessed_files:
-            # All files for this ID and year have been processed
+            # Log the scenario where the record exists but no file is found
+            data.update({
+                "error": "File missing"
+            })
+            log_to_wandb(data)
             continue
 
         # Process the first unprocessed file
@@ -121,6 +128,14 @@ if __name__ == "__main__":
             data.update({
                 "error": "File not found",
                 "comment": f"No file found for ID {id_value}"
+            })
+            log_to_wandb(data)
+            continue
+
+        # add an error if text is more than 15000 characters
+        if len(full_text) > 15000:
+            data.update({
+                "error": "Text longer than 15000 characters",
             })
             log_to_wandb(data)
             continue
@@ -227,7 +242,7 @@ if __name__ == "__main__":
             percentage_list = ast.literal_eval(response)
             if percentage_list:
                 highest_percentage = max(percentage_list)
-                data['Presence_predicted'] = round(highest_percentage, 2)
+                data['Presence'] = round(highest_percentage, 2)
                 data['all_percentage_values'] = percentage_list
         except (SyntaxError, ValueError) as e:
             data["comment"] += f"{response} "
@@ -245,24 +260,33 @@ if __name__ == "__main__":
                 data["comment"] += "Der ermittelte Wert weicht um mehr als 10 Prozentpunkte vom zweithöchsten Wert ab. "
                 data.update({
                     "error": "Significant difference from second highest value",
-                    "Presence_predicted": highest_percentage
+                    "Presence": highest_percentage
                 })
                 log_to_wandb(data)
                 continue
 
-        if data['Presence_enhanced'] == data['Presence_predicted']:
-            data['correct'] = True
-        else:
-            # Check for another row with the same ID_Key_original and Year_original
-            same_id_year_rows = df[(df['ID_Key_original'] == row['ID_Key_original']) & 
-                                (df['Year_original'] == row['Year_original'])]
+        # add check for if the highest percentage is greater than 99, flag it as an error
+        if highest_percentage > 99:
+            data.update({
+                "error": "Highest percentage greater than 99",
+                "Presence": highest_percentage
+            })
+            log_to_wandb(data)
+            continue
 
-            # Check if any of those rows have Presence_enhanced equal to highest_percentage
-            if any(same_id_year_rows['Presence_enhanced'] == data['Presence_predicted']):
-                data['correct'] = True
-                data["comment"] += "Der ermittelte Wert stammt aus dem anderen Bericht diesen Jahres und ist dort korrekt ermittelt. "
-            else:
-                data['correct'] = False
+        # if data['Presence_enhanced'] == data['Presence_predicted']:
+        #     data['correct'] = True
+        # else:
+        #     # Check for another row with the same ID_Key_original and Year_original
+        #     same_id_year_rows = df[(df['ID_Key_original'] == row['ID_Key_original']) & 
+        #                         (df['Year_original'] == row['Year_original'])]
+
+        #     # Check if any of those rows have Presence_enhanced equal to highest_percentage
+        #     if any(same_id_year_rows['Presence_enhanced'] == data['Presence_predicted']):
+        #         data['correct'] = True
+        #         data["comment"] += "Der ermittelte Wert stammt aus dem anderen Bericht diesen Jahres und ist dort korrekt ermittelt. "
+        #     else:
+        #         data['correct'] = False
 
         # Log the data
         log_to_wandb(data)

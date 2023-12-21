@@ -1,12 +1,12 @@
 {
     "directory": "data/Praesenzen_hv-info",
-    "csv_file_path": "data/231215_test_set_small.csv",
+    "csv_file_path": "data/231221_Combined_new_with_ID.csv",
     "wandb_project_name": "hv-praesenzen",
-    "wandb_table_columns": [
-        "ID_Key_original", 
-        "Year_original", 
-        "Presence_enhanced", 
-        "Presence_predicted", 
+    "wandb_table_columns_test": [
+        "ID_Key", 
+        "Year", 
+        "Presence_original", 
+        "Presence", 
         "correct", 
         "error", 
         "cost",
@@ -15,8 +15,19 @@
         "file_path",
         "comment"
     ],
+    "wandb_table_columns_prod": [
+        "unique_id",
+        "ID_Key", 
+        "Year",  
+        "Presence", 
+        "error", 
+        "cost",
+        "header_row",
+        "all_percentage_values",
+        "file_path",
+        "comment"
+    ],
     "gpt_model_name": "gpt-4-1106-preview",
-    "starting_index": 82,
     "file_extension": ".pdf",
     "subdirectory_suffix": "ASM",
     "gpt_temperature": 0.2,
