@@ -5,3 +5,4 @@ wandb/
 test.ipynb
 __pycache__/
 test_2.ipynb
+.DS_Store
