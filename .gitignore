@@ -3,4 +3,5 @@ data/
 .env
 wandb/
 test.ipynb
+__pycache__/
 test_2.ipynb
