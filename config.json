@@ -9,7 +9,9 @@
         "Presence_predicted", 
         "correct", 
         "error", 
-        "cost", 
+        "cost",
+        "header_row",
+        "all_percentage_values",
         "file_path",
         "comment"
     ],
@@ -21,6 +23,15 @@
     "token_cost": {
         "input_price_per_1000": 0.01,
         "output_price_per_1000": 0.03
+    },
+    "prompts": {
+        "system_prompt": "Du bist ein hilfreicher Assistent, der Berichte von Hauptversammlungen auswertet.",
+        "user_prompts": {
+            "header_evaluation_prompt": "Im folgenden erhältst du einen Bericht einer Hauptversammlung. Das Dokument enthält eine Tabelle mit einer Kopfzeile, aber die Kopfzeile ist beim Extrahieren des Texts beschädigt worden. Bitte gib mir die volle Bezeichnung jeder Spalte in der korrekten Reihenfolge, wie sie im Dokument auftaucht. Antworte ausschließlich mit einer Liste im Format [spalte_1, spalte_2, spalte_3]. Es kann auch eine Kopfzeile mit Multi-Index sein. Wenn du keine Kopfzeile finden kannst, antworte mit [0]. Bericht: {report}",
+            "regular_extraction_prompt": "Im folgenden erhältst du einen Bericht einer Hauptversammlung. Das Dokument enthält eine Tabelle mit einer Kopfzeile, aber die Kopfzeile ist beim Extrahieren des Texts beschädigt worden. Die korrekte Kopfzeile habe ich angehängt. Antworte ausschließlich mit einer Liste im Format [zahl_1, zahl_2, zahl_3], die ausschließlich alle die genannten Prozentzahlen enthält, die sich auf den Prozentsatz des auf der Hauptversammlung vertretenen Grundkapitals beziehen. Durchsuche das ganze Dokument nach solchen Zahlen, auch außerhalb von Tabellen. Wenn du dir nicht absolut sicher bist, antworte mit [0]. Verwende Punkt statt Komma für die Zahlen. \n Korrekte Kopfzeile: {column_names} \n Bericht: {report}",
+            "alternative_doc_structure_prompt": "Im folgenden erhältst du einen Bericht einer Hauptversammlung. Werden in dem Dokument wiederholt und ausdrücklich Angaben zum auf der Versammlung vertretenen Grundkapital in Prozent gemacht (Also bspw. 'Grundkapital: 30%'? Antworte nur mit [1] oder [0]. Bericht: {report}",
+            "alternative_doc_extraction_prompt": "Im folgenden erhältst du einen Bericht von einer Hauptversammlung. Antworte ausschließlich mit einer Liste im Format [zahl_1, zahl_2, zahl_3], die ausschließlich alle die genannten Prozentzahlen enthält, die sich auf den Prozentsatz des auf der Hauptversammlung vertretenen Grundkapitals beziehen. Wenn du dir nicht absolut sicher bist, antworte mit [0]. Verwende Punkt statt Komma für die Zahlen. Bericht: {report}"
+        }
     },
     "percentage_threshold": 10,
     "other_configurations": {
