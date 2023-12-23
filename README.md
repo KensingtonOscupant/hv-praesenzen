@@ -15,13 +15,16 @@ Ensure the following dependencies are installed:
 - openai
 - wandb
 - pdfplumber
+- python-dotenv
 
 You can install these packages using pip:
-```pip install tqdm pandas openai wandb pdfplumber```
+```pip install tqdm pandas openai wandb pdfplumber python-dotenv```
+
+To set up your OpenAI API key with dotenv, create a .env file in the base directory of the project and add ```OPENAI_API_KEY="sk-..."``` to it, where "sk-..." is your API key.
 
 ## Configuration
 
-The script relies on a config.json file for various settings, including the path to the dataset (CSV file), OpenAI API key, and wandb project settings.
+The script relies on a config.json file for various settings where one can set the path to the reports evaluated, the file where the results are stored (you can also have a test_set as input), W&B project settings, and most importantly, the prompts used. This file is also logged to W&B as an artifact, which makes it simple to keep track of the settings used in each run.
 
 ## Usage
 
