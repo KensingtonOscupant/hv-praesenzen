@@ -27,6 +27,6 @@ The script relies on a config.json file for various settings, including the path
 
 To run the script, use the following command:
 
-```python script_name.py```
+```python main.py```
 
-Replace script_name.py with the actual name of your script file. You can supply the command line arguments --start [your start row] and --end [your last row] if you only want to run it on a slice of your dataframe.
+You can supply the command line arguments --start [your start row] and --end [your last row] if you only want to run it on a slice of your dataframe, e.g. ```python main.py --start 2 --end 30``` to only evaluate rows 2 to 30 of your dataframe.
