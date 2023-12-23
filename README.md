@@ -8,7 +8,7 @@ This project evaluates the minimum base capital present in Annual Shareholder Me
 - Using ```gpt-4-1106-preview``` for interpreting and analyzing textual data.
 - Integration with [Weights & Biases (wandb)](http://wandb.ai/) for experiment tracking and logging.
 
-![Screenshot of a W&B table from this project](https://ibb.co/QYvSVPM)
+![Screenshot of a W&B table from this project]([https://ibb.co/QYvSVPM](https://i.ibb.co/9yHK0bW/Screenshot-2023-12-23-at-22-52-35.png))
 
 ## Installation
 Ensure the following dependencies are installed:
