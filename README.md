@@ -5,7 +5,7 @@ This project evaluates the minimum base capital in Annual Shareholder Meetings (
 
 ## Features
 - Processing PDF reports to extract relevant data.
-- Using OpenAI's GPT models for interpreting and analyzing textual data.
+- Using ```gpt-4-1106-preview``` for interpreting and analyzing textual data.
 - Integration with [Weights & Biases (wandb)](http://wandb.ai/) for experiment tracking and logging.
 
 ## Installation
