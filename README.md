@@ -1,7 +1,7 @@
 # Determining the minimum base capital present at Annual Shareholders' Meetings (ASMs) based on ASM reports with GPT-4
 
 ## Description
-This project evaluates the minimum base capital in Annual Shareholder Meetings (ASMs) of German companies, achieving 98.4% accuracy. The test set, representing a comprehensive sample, includes one report from each of the 178 companies assessed, drawn from a pool of approximately 3700 reports.
+This project evaluates the minimum base capital present in Annual Shareholder Meetings (ASMs) of German companies, achieving 98.4% accuracy. The test set, representing a comprehensive sample, includes one report from each of the 178 companies assessed, drawn from a pool of approximately 3700 reports.
 
 ## Features
 - Processing PDF reports to extract relevant data.
