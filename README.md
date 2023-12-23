@@ -7,7 +7,6 @@ This script is part of a project that analyzes the minimum base capital present 
 - Processing PDF reports to extract relevant data.
 - Using OpenAI's GPT models for interpreting and analyzing textual data.
 - Integration with [Weights & Biases (wandb)](http://wandb.ai/) for experiment tracking and logging.
-- Customized data handling and error logging mechanisms.
 
 ## Installation
 Before running the script, ensure the following dependencies are installed:
@@ -15,6 +14,8 @@ Before running the script, ensure the following dependencies are installed:
 - pandas
 - openai
 - wandb
+
+*Note: I will add a requirements.txt soon.*
 
 You can install these packages using pip:
 ```pip install tqdm pandas openai wandb```
