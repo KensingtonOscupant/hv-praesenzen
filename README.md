@@ -1,7 +1,7 @@
 # Determining the minimum base capital present at Annual Shareholders' Meetings (ASMs) based on ASM reports with GPT-4
 
 ## Description
-This project analyzes the minimum base capital present in ASMs of German companies. It has achieved a 98.4% accuracy on a test set sampled from at least one report of all the 178 companies evaluated.
+This project evaluates the minimum base capital in Annual Shareholder Meetings (ASMs) of German companies, achieving 98.4% accuracy. The test set, representing a comprehensive sample, includes one report from each of the 178 companies assessed, drawn from a pool of approximately 3700 reports.
 
 ## Features
 - Processing PDF reports to extract relevant data.
@@ -24,7 +24,7 @@ To set up your OpenAI API key with dotenv, create a .env file in the base direct
 
 ## Configuration
 
-The script relies on a config.json file for various settings where one can set the path to the reports evaluated, the file where the results are stored (you can also have a test_set as input), W&B project settings, and most importantly, the prompts used. This file is also logged to W&B as an artifact, which makes it simple to keep track of the settings used in each run.
+The script functions based on settings defined in a 'config.json' file. This file allows users to specify various parameters, including the path to the evaluated reports, the location for storing results, and options for inputting a test set. It also includes settings for the Weights & Biases (W&B) project and, crucially, the prompts utilized. Additionally, the 'config.json' file is recorded as an artifact in W&B, simplifying the process of tracking the settings for each run.
 
 ## Usage
 
