@@ -25,13 +25,11 @@ prompt_name = os.getenv("PROMPT_NAME")
 
 # create prompt objects
 system_prompt = weave.StringPrompt(config['prompts']['system_prompt'])
-single_label_present_prompt = weave.StringPrompt(config['prompts']['user_prompts']['single_label_present_prompt'])
 single_label_value_prompt = weave.StringPrompt(config['prompts']['user_prompts']['single_label_value_prompt'])
 
 #publish for version control
 weave.publish(system_prompt, name="system_prompt")
 weave.publish(single_label_value_prompt, name="single_label_value_prompt")
-weave.publish(single_label_present_prompt, name="single_label_present_prompt")
 
 class LabelValueOutput(BaseModel):
     label_value_llm_output: float
