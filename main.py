@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = weave.init("agm_minimum_share_capital_present_14")
+client = weave.init("agm_minimum_share_capital_present_15")
 
 llm_name = os.getenv("LLM_NAME")
 price_per_1m_tokens = price(llm_name)
@@ -24,14 +24,22 @@ description = os.getenv("MODEL_DESCRIPTION")
 leaderboard_name = f"{llm_name}_using_{prompt_name}"
 
 system_prompt = get_prompt("system_prompt")
-extraction_prompt = get_prompt("extraction_prompt")
+base_prompt = get_prompt("base_prompt")
+header_row_prompt = get_prompt("header_row_prompt")
 
 class LabelValueOutput(BaseModel):
     label_value_llm_output: float
 
+class HeaderRowOutput(BaseModel):
+    header_row_output_llm_output: bool
+
 class AGMPresenceModel(Model):
+    """Keeping these here only because it enables automatic prompt versioning in Weave.
+    Due to a deserialization issue, it is not possible to reference these as class attributes
+    further down, which is why I am falling back to using the corresponding global variables."""
     system_prompt: weave.trace.refs.ObjectRef
-    extraction_prompt: weave.trace.refs.ObjectRef
+    base_prompt: weave.trace.refs.ObjectRef
+    header_row_prompt: weave.trace.refs.ObjectRef
 
     @weave.op()
     def predict(self, file_path: str):
@@ -43,12 +51,23 @@ class AGMPresenceModel(Model):
             api_key=os.getenv("OPENAI_API_KEY")
         )
 
+        header_row_present_response = client.responses.parse(
+            model=llm_name, 
+            input=[
+                {"role": "system", "content": system_prompt.get().content},
+                {"role": "user", "content": header_row_prompt.get().content.format(
+                    report=text
+                )}
+            ],
+            text_format=HeaderRowOutput
+        )
+
         # Then try regular extraction with the header info
         label_value_response = client.responses.parse(
             model=llm_name, 
             input=[
                 {"role": "system", "content": system_prompt.get().content},
-                {"role": "user", "content": extraction_prompt.get().content.format(
+                {"role": "user", "content": base_prompt.get().content.format(
                     report=text
                 )}
             ],
@@ -67,10 +86,11 @@ class AGMPresenceModel(Model):
             label_value_predicted = round(label_value_response.output_parsed.label_value_llm_output, 2)
 
         return {'label_value_predicted': label_value_predicted,
+                'header_row_present': header_row_present_response.output_parsed.header_row_output_llm_output,
                 'metadata': metadata,
                 'cost': cost}
 
-model = AGMPresenceModel(name=leaderboard_name, description=description, system_prompt=system_prompt, extraction_prompt=extraction_prompt)
+model = AGMPresenceModel(name=leaderboard_name, description=description, system_prompt=system_prompt, base_prompt=base_prompt, header_row_prompt=header_row_prompt)
 
 eval = weave.ref(f"{split}_eval").get()
 
