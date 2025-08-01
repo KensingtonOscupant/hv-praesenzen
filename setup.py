@@ -6,12 +6,12 @@ from weave.trace.ref_util import get_ref
 from typing import Any
 from agm_scorer import AGMPresenceScorer
 
-weave.init("agm_share_capital_present_13")
+weave.init("agm_minimum_share_capital_present_14")
 
 for split in ["train", "dev", "test"]:
 
     # upload dataset
-    csv_path = f"data/250907_{split}_set.csv"
+    csv_path = f"data/250730_{split}_set.csv"
     df = pd.read_csv(csv_path)
     dataset_object = Dataset.from_pandas(df)
     dataset_ref = weave.publish(dataset_object, name=f"{split}_set") # at least i think it's a ref no?
@@ -29,8 +29,18 @@ for split in ["train", "dev", "test"]:
             leaderboard.LeaderboardColumn(
             evaluation_object_ref=get_ref(evaluation).uri(),
             scorer_name="AGMPresenceScorer",
-            summary_metric_path="value.accuracy",
-                )
+            summary_metric_path="accuracy",
+                ),
+            leaderboard.LeaderboardColumn(
+            evaluation_object_ref=get_ref(evaluation).uri(),
+            scorer_name="AGMPresenceScorer",
+            summary_metric_path="selective_accuracy"
+            ),
+            leaderboard.LeaderboardColumn(
+            evaluation_object_ref=get_ref(evaluation).uri(),
+            scorer_name="AGMPresenceScorer",
+            summary_metric_path="coverage"
+            )
             ],
     )
 
