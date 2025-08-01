@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # ---- 1. load the full dataset ------------------------------------------------
-df = pd.read_csv("data/250807_full_set.csv")          # <- your file name here
+df = pd.read_csv("data/250730_full_set.csv")          # <- your file name here
 
 # Drop specified columns
 df = df.drop(columns=['correct', 'error', 'explanation', 'comment'])
@@ -35,9 +35,9 @@ dev_df, test_df = train_test_split(
 )
 
 # ---- 4. save to disk ---------------------------------------------------------
-train_df.to_csv("data/250907_train_set.csv", index=False)
-dev_df.to_csv("data/250907_dev_set.csv",   index=False)
-test_df.to_csv("data/250907_test_set.csv", index=False)
+train_df.to_csv("data/250730_train_set.csv", index=False)
+dev_df.to_csv("data/250730_dev_set.csv",   index=False)
+test_df.to_csv("data/250730_test_set.csv", index=False)
 
 print(f"train: {len(train_df)} docs | dev: {len(dev_df)} | test: {len(test_df)}")
 
