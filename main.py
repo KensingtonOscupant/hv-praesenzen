@@ -5,33 +5,33 @@ import os
 from pydantic import BaseModel
 import asyncio
 import json
-from utilities import process_pdf
-from openai_prices import price
-from prompts.registry import Prompt  
+from utilities import process_pdf, get_prompt
+from openai_prices import price 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 client = weave.init("agm_minimum_share_capital_present_14")
 
-split = os.getenv("SPLIT")
 llm_name = os.getenv("LLM_NAME")
 price_per_1m_tokens = price(llm_name)
-prompt_setup = os.getenv("PROMPT_SETUP")
+
+split = os.getenv("SPLIT")
+prompt_name = os.getenv("PROMPT_NAME")
 description = os.getenv("MODEL_DESCRIPTION")
 
-system_prompt_ref = Prompt.SYSTEM.ensure_ref()
-base_prompt_ref = Prompt.BASE.ensure_ref()
-
 # name of the run that appears on the wandb leaderboard
-leaderboard_name = f"{llm_name}_using_{prompt_setup}"
+leaderboard_name = f"{llm_name}_using_{prompt_name}"
+
+system_prompt = get_prompt("system_prompt")
+extraction_prompt = get_prompt("extraction_prompt")
 
 class LabelValueOutput(BaseModel):
     label_value_llm_output: float
 
 class AGMPresenceModel(Model):
     system_prompt: weave.trace.refs.ObjectRef
-    base_prompt: weave.trace.refs.ObjectRef
+    extraction_prompt: weave.trace.refs.ObjectRef
 
     @weave.op()
     def predict(self, file_path: str):
@@ -47,8 +47,8 @@ class AGMPresenceModel(Model):
         label_value_response = client.responses.parse(
             model=llm_name, 
             input=[
-                {"role": "system", "content": system_prompt_ref.get().content},
-                {"role": "user", "content": base_prompt_ref.get().content.format(
+                {"role": "system", "content": system_prompt.get().content},
+                {"role": "user", "content": extraction_prompt.get().content.format(
                     report=text
                 )}
             ],
@@ -70,7 +70,7 @@ class AGMPresenceModel(Model):
                 'metadata': metadata,
                 'cost': cost}
 
-model = AGMPresenceModel(name=leaderboard_name, description=description, system_prompt=system_prompt_ref, base_prompt=base_prompt_ref)
+model = AGMPresenceModel(name=leaderboard_name, description=description, system_prompt=system_prompt, extraction_prompt=extraction_prompt)
 
 eval = weave.ref(f"{split}_eval").get()
 
