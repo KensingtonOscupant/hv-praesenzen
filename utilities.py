@@ -33,6 +33,6 @@ def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
 
     stringprompt_object = weave.StringPrompt(prompt_text)
 
-    prompt_ref = weave.publish(stringprompt_object, name=prompt_name)
+    prompt = weave.publish(stringprompt_object, name=prompt_name)
 
-    return prompt_ref
+    return prompt

@@ -5,8 +5,14 @@ from weave.flow import leaderboard
 from weave.trace.ref_util import get_ref
 from typing import Any
 from agm_scorer import AGMPresenceScorer
+from dotenv import load_dotenv
+import os
 
-weave.init("agm_minimum_share_capital_present_14")
+load_dotenv()
+
+project_name = os.getenv("PROJECT_NAME")
+
+weave.init(project_name)
 
 for split in ["train", "dev", "test"]:
 
