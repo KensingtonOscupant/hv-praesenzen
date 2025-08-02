@@ -4,7 +4,7 @@ from weave import Dataset, Evaluation, Scorer
 from weave.flow import leaderboard
 from weave.trace.ref_util import get_ref
 from typing import Any
-from agm_scorer import AGMPresenceScorer
+from scorer import AGMPresenceScorer
 from dotenv import load_dotenv
 import os
 
