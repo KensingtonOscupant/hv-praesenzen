@@ -6,6 +6,7 @@ from weave.trace.ref_util import get_ref
 from typing import Any
 from agm_scorer import AGMPresenceScorer
 from dotenv import load_dotenv
+from utilities import preprocess_example
 import os
 
 load_dotenv()
@@ -21,13 +22,26 @@ for split in ["train", "dev", "test"]:
     csv_path = f"data/{dataset_name}_{split}_set.csv"
     df = pd.read_csv(csv_path)
     dataset_object = Dataset.from_pandas(df)
-    dataset_ref = weave.publish(dataset_object, name=f"{split}_set") # at least i think it's a ref no?
+    dataset_ref = weave.publish(dataset_object, name=f"{split}_set")
 
-    # create eval for respective split
-    evaluation = Evaluation(
-        dataset=dataset_ref, 
-        scorers=[AGMPresenceScorer()],
-    )
+    if split == "test":
+        # create eval object for test
+        evaluation = Evaluation(
+            dataset=dataset_ref,
+            scorers=[AGMPresenceScorer()],
+            preprocess_model_input=preprocess_example,
+            trials=10
+        )
+
+    else:
+        # create eval objects for train and dev
+        evaluation = Evaluation(
+            dataset=dataset_ref, 
+            scorers=[AGMPresenceScorer()],
+            preprocess_model_input=preprocess_example,
+        )
+
+
     weave.publish(evaluation, name=f"{split}_eval")
 
     # create leaderboard for respective split
