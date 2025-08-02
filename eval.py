@@ -9,7 +9,7 @@ load_dotenv()
 
 llm_name         = os.getenv("LLM_NAME")
 split            = os.getenv("SPLIT")
-prompt_setup     = os.getenv("PROMPT_NAME") 
+prompt_setup     = os.getenv("PROMPT_SETUP") 
 description      = os.getenv("MODEL_DESCRIPTION")
 project_name     = os.getenv("PROJECT_NAME")
 
