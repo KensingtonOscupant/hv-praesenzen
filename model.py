@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from openai import OpenAI
 from weave import Model
 from dotenv import load_dotenv
-from utilities import get_prompt, process_pdf
+from utilities import process_pdf, get_prompt, get_metadata
 
 load_dotenv()
 
@@ -25,15 +25,13 @@ class AGMPresenceModel(Model):
 
     @weave.op()
     def predict(self, file_path: str):
-        # TODO get metadata, specifically year, id_key, maybe unique id
-        metadata = "metadata"
-
         client = OpenAI(
             api_key=os.getenv("OPENAI_API_KEY")
         )
 
+        metadata = get_metadata(file_path)
         pages, error = process_pdf(file_path)
-
+        
         page_analysis_results = []
         for page in pages:
 
