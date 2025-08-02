@@ -84,6 +84,7 @@ def process_pdf(file_path):
         error_type = type(e).__name__
         return [], f"Unexpected error processing PDF {actual_path} ({error_type}): {str(e)}"
 
+@weave.op()
 def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
 
     """gets text content from prompt file with given name"""
@@ -96,6 +97,7 @@ def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
 
     return prompt
 
+@weave.op()
 def get_metadata(file_path: str):
     """
     Extract metadata from file path structure.
