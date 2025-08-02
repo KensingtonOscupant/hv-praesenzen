@@ -3,27 +3,32 @@ import pdfplumber
 from pathlib import Path
 import weave
 
-def process_pdf(file_path):
+@weave.op()
+def preprocess_example(example):
     """
     Opens a PDF file and extracts text from each page.
 
     Parameters:
-    file_path (str): Path to the PDF file.
+    example: Either a string file path or a dictionary with a 'file_path' key.
 
     Returns:
-    tuple: A tuple containing the full extracted text and an error message (if any).
+    dict: A dictionary containing the extracted pages as a list.
     """
     try:
+        file_path = example['file_path']
+            
         with pdfplumber.open(file_path) as pdf:
-            full_text = ""
+            pages = []
             for page in pdf.pages:
                 page_text = page.extract_text()
-                if page_text is None or page_text == "":
-                    return None, "Document could not be read"
-                full_text += page_text
-            return full_text, None
+                if page_text is not None and page_text != "":
+                    pages.append(page_text)
+            
+            result = {"pages": pages, "error": None}
+            return result
     except Exception as e:
-        return None, str(e)
+        result = {"pages": [], "error": str(e)}
+        return result
 
 def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
 
