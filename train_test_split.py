@@ -13,11 +13,6 @@ df = pd.read_csv(f"data/{dataset_name}_full_set.csv")
 # Drop specified columns
 df = df.drop(columns=['correct', 'error', 'explanation', 'comment'])
 
-# Add pages column 
-# NOTE: deliberately left empty for now, see https://www.remnote.com/w/673c5dd95702885d831bc169/D9DbvzKQXKNdhJLmW
-df['pages'] = ""
-df['error'] = ""
-
 # Set label_predicted to 0 for all rows 
 df['label_predicted'] = ""
 
