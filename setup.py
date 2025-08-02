@@ -6,7 +6,6 @@ from weave.trace.ref_util import get_ref
 from typing import Any
 from agm_scorer import AGMPresenceScorer
 from dotenv import load_dotenv
-from utilities import preprocess_example
 import os
 
 load_dotenv()
@@ -29,7 +28,6 @@ for split in ["train", "dev", "test"]:
         evaluation = Evaluation(
             dataset=dataset_ref,
             scorers=[AGMPresenceScorer()],
-            preprocess_model_input=preprocess_example,
             trials=10
         )
 
@@ -38,7 +36,6 @@ for split in ["train", "dev", "test"]:
         evaluation = Evaluation(
             dataset=dataset_ref, 
             scorers=[AGMPresenceScorer()],
-            preprocess_model_input=preprocess_example,
         )
 
 
