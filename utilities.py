@@ -46,26 +46,26 @@ def process_pdf(file_path):
             if len(pdf.pages) == 0:
                 return [], f"PDF file contains no pages: {actual_path}"
             
-            pages = []
+            full_text = ""
             failed_pages = []
             
             for page_num, page in enumerate(pdf.pages, 1):
                 try:
                     page_text = page.extract_text()
                     if page_text is not None and page_text.strip() != "":
-                        pages.append(page_text)
+                        full_text += page_text
                     # Note: We don't treat empty pages as errors, just skip them
                 except Exception as page_error:
                     failed_pages.append(f"Page {page_num}: {str(page_error)}")
                     continue
             
             # If we couldn't extract text from any pages
-            if len(pages) == 0 and len(failed_pages) > 0:
-                return [], f"Failed to extract text from all pages in {actual_path}. Errors: {'; '.join(failed_pages)}"
-            elif len(pages) == 0:
-                return [], f"No text content found in PDF: {actual_path}"
+            if full_text == "" and len(failed_pages) > 0:
+                return "", f"Failed to extract text from all pages in {actual_path}. Errors: {'; '.join(failed_pages)}"
+            elif full_text == "":
+                return "", f"No text content found in PDF: {actual_path}"
             
-            return pages, None
+            return full_text, None
             
     except FileNotFoundError:
         return [], f"File not found during processing: {actual_path}"
@@ -84,7 +84,6 @@ def process_pdf(file_path):
         error_type = type(e).__name__
         return [], f"Unexpected error processing PDF {actual_path} ({error_type}): {str(e)}"
 
-@weave.op()
 def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
 
     """gets text content from prompt file with given name"""
