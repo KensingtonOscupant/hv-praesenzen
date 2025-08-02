@@ -95,3 +95,60 @@ def get_prompt(prompt_name: str) -> weave.trace.refs.ObjectRef:
     prompt = weave.publish(stringprompt_object, name=prompt_name)
 
     return prompt
+
+def get_metadata(file_path: str):
+    """
+    Extract metadata from file path structure.
+    
+    Args:
+        file_path: Path like "data/Praesenzen_hv-info/Company Name-ID/ASM/HV-Beschluss..."
+        
+    Returns:
+        dict with keys: company_name, key_identity_id, date, ordentlich
+    """
+    from pathlib import Path
+    import re
+    
+    path_obj = Path(file_path)
+    path_parts = path_obj.parts
+    
+    # Extract company info from third level (index 2)
+    if len(path_parts) < 3:
+        raise ValueError(f"Path does not have enough levels: {file_path}")
+    
+    company_level = path_parts[2]  # Third level: "Fresenius Medical Care AG & Co. KGaA-14830"
+    
+    # Find the last dash to split company name from ID
+    last_dash_index = company_level.rfind('-')
+    if last_dash_index == -1:
+        raise ValueError(f"No dash found in company level: {company_level}")
+    
+    company_name = company_level[:last_dash_index]
+    key_identity_id = company_level[last_dash_index + 1:]
+    
+    # Extract date and ordentlich from PDF filename
+    pdf_filename = path_obj.name  # "HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.10.pdf"
+    
+    # Extract date using regex pattern DD.MM.YY
+    date_pattern = r'\b(\d{2}\.\d{2}\.\d{2})\b'
+    date_match = re.search(date_pattern, pdf_filename)
+    if not date_match:
+        raise ValueError(f"No date pattern DD.MM.YY found in filename: {pdf_filename}")
+    
+    date = date_match.group(1)
+    
+    # Determine if it's ordentlich or außerordentlich
+    # Check for außerordentlichen first since it contains ordentlichen as substring
+    if "außerordentlichen" in pdf_filename:
+        ordentlich = False
+    elif "ordentlichen" in pdf_filename:
+        ordentlich = True
+    else:
+        raise ValueError(f"Neither 'ordentlichen' nor 'außerordentlichen' found in filename: {pdf_filename}")
+    
+    return {
+        "company_name": company_name,
+        "key_identity_id": key_identity_id,
+        "date": date,
+        "ordentlich": ordentlich
+    }
