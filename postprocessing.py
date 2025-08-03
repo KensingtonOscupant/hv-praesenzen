@@ -106,4 +106,4 @@ processed_df['key_identity_id'] = processed_df['key_identity_id'].astype(int)
 # Save processed file
 processed_df.to_csv(f'data/out/{current_date}_results.csv', index=False)
 
-print(f"Processed {len(processed_df)} rows. Saved to data/{current_date}_results.csv")
+print(f"Processed {len(processed_df)} rows. Saved to data/out/{current_date}_results.csv")
