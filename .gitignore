@@ -1,8 +1,17 @@
 hv_venv/
-data/
 .env
 wandb/
 __pycache__/
 .DS_Store
 
-prompts/*.txt
+# Ignore everything in data by default …
+data/*
+
+# … but keep the two whitelisted sub-trees
+!data/gold/
+!data/gold/**     # allow files inside the folder
+!data/out/
+!data/out/**
+
+prompts/
+manual_annotations.py

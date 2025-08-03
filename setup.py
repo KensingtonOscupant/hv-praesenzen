@@ -18,7 +18,7 @@ weave.init(project_name)
 for split in ["train", "dev", "test"]:
 
     # upload dataset
-    csv_path = f"data/{dataset_name}_{split}_set.csv"
+    csv_path = f"data/gold/{dataset_name}_{split}_set.csv"
     df = pd.read_csv(csv_path)
     dataset_object = Dataset.from_pandas(df)
     dataset_ref = weave.publish(dataset_object, name=f"{split}_set")
