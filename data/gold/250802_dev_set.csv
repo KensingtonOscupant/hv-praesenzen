@@ -1,0 +1,35 @@
+id_key,year,label_present,label_value,label_predicted,file_path
+15861,2007,False,,,data/Praesenzen_hv-info/Symrise AG-15861/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 15.05.07.pdf
+3769,2002,True,45.99,,data/Praesenzen_hv-info/Clere AG-3769/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 28.01.14.pdf
+15394,2015,True,39.05,,data/Praesenzen_hv-info/Villeroy & Boch AG-15394/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 27.03.15.pdf
+14859,2010,True,36.06,,data/Praesenzen_hv-info/GESCO AG-14859/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 02.09.10.pdf
+15039,2009,True,62.56,,data/Praesenzen_hv-info/Linde AG-15039/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 15.05.09.pdf
+14838,2006,True,44.86,,data/Praesenzen_hv-info/Deutsche Börse AG-14838/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 24.05.06.pdf
+7460,2007,True,54.14,,data/Praesenzen_hv-info/Deutsche Lufthansa AG-7460/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 18.04.07.pdf
+14985,2010,True,50.8,,data/Praesenzen_hv-info/Infineon Technologies AG-14985/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.02.10.pdf
+15819,2014,True,93.96,,data/Praesenzen_hv-info/Evonik Industries AG-15819/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.14.pdf
+15743,2015,True,52.05,,data/Praesenzen_hv-info/TLG Immobilien AG-15743/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 25.06.15.pdf
+14432,2021,True,76.24,,data/Praesenzen_hv-info/Beiersdorf AG-14432/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 01.04.21.pdf
+15077,2006,True,73.28,,data/Praesenzen_hv-info/Medion AG-15077/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.07.pdf
+14960,2012,True,48.05,,data/Praesenzen_hv-info/IVG Immobilien AG-14960/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 15.05.12.pdf
+14597,2010,True,90.3,,data/Praesenzen_hv-info/Hugo Boss AG-14597/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 21.06.10.pdf
+15720,2015,True,53.1,,data/Praesenzen_hv-info/SAF-Holland SE-15720/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.04.15.pdf
+6861,2020,True,56.87,,data/Praesenzen_hv-info/AIXTRON SE-6861/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.20.pdf
+14425,2015,True,50.82,,data/Praesenzen_hv-info/Deutz AG-14425/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 29.04.15.pdf
+9433,2015,True,60.3,,data/Praesenzen_hv-info/Encavis AG-9433/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.06.15.pdf
+15277,2012,True,66.91,,data/Praesenzen_hv-info/STRATEC SE-15277/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 16.05.12.pdf
+2788,2016,True,46.49,,data/Praesenzen_hv-info/Adtran Networks SE-2788/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.16.pdf
+15765,2014,True,87.67,,data/Praesenzen_hv-info/Telefonica Deutschland Holding AG-15765/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.14.pdf
+15660,2014,True,62.3,,data/Praesenzen_hv-info/Diebold Nixdorf  AG-15660/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.01.14.pdf
+15018,2014,True,81.9,,data/Praesenzen_hv-info/KRONES AG-15018/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 25.06.14.pdf
+10235,2014,True,55.46,,data/Praesenzen_hv-info/Henkel AG & Co. KGaA-10235/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 04.04.14.pdf
+15734,2011,True,72.24,,data/Praesenzen_hv-info/Tom Tailor Holding SE i.I.-15734/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 18.05.11.pdf
+8844,2015,True,47.7,,data/Praesenzen_hv-info/1&1 AG-8844/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 21.05.15.pdf
+14429,2000,True,76.15,,data/Praesenzen_hv-info/BMW Bayerische Motoren Werke AG-14429/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 14.05.09.pdf
+14821,2011,True,85.08,,data/Praesenzen_hv-info/Fielmann AG-14821/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 07.07.11.pdf
+12467,2023,True,66.3,,data/Praesenzen_hv-info/Nordex SE-12467/ASM/HV-Beschluss zur außerordentlichen Hauptversammlung am 27.03.23.pdf
+15645,2001,True,41.92,,data/Praesenzen_hv-info/E.ON SE-15645/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 05.05.11.pdf
+10468,2005,True,41.22,,data/Praesenzen_hv-info/Allianz SE-10468/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 03.05.17.pdf
+14449,2012,True,73.75,,data/Praesenzen_hv-info/Gerry Weber International AG-14449/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 05.06.12.pdf
+14733,2009,True,61.16,,data/Praesenzen_hv-info/Deutsche Telekom AG-14733/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 30.04.09.pdf
+15843,2013,True,43.11,,data/Praesenzen_hv-info/GSW Immobilien AG-15843/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 18.06.13.pdf

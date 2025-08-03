@@ -1,0 +1,35 @@
+id_key,year,label_present,label_value,label_predicted,file_path
+14721,2022,True,55.79,,data/Praesenzen_hv-info/Deutsche Beteiligungs AG - DBAG-14721/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 17.02.22.pdf
+11427,2005,True,71.23,,data/Praesenzen_hv-info/Continental AG-11427/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.04.09.pdf
+15698,2015,True,56.06,,data/Praesenzen_hv-info/Manz AG-15698/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 07.07.15.pdf
+14666,2012,True,84.11,,data/Praesenzen_hv-info/comdirect bank AG-14666/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 09.05.12.pdf
+14829,2012,True,75.53,,data/Praesenzen_hv-info/Fresenius SE & Co. KGaA-14829/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.12.pdf
+15230,2012,True,50.8,,data/Praesenzen_hv-info/Schaltbau Holding AG-15230/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 06.06.12.pdf
+14830,2010,True,74.29,,data/Praesenzen_hv-info/Fresenius Medical Care AG & Co. KGaA-14830/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.10.pdf
+15849,2009,True,64.14,,data/Praesenzen_hv-info/PATRIZIA AG-15849/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.06.09.pdf
+14510,2007,False,,,data/Praesenzen_hv-info/elexis AG-14510/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 16.05.07.pdf
+15635,2004,True,44.89,,data/Praesenzen_hv-info/Münchener Rückversicherungs-Gesellschaft AG-15635/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 26.05.04.pdf
+5318,2009,True,80.69,,data/Praesenzen_hv-info/Grenke AG-5318/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 12.05.09.pdf
+14730,2023,True,58.69,,data/Praesenzen_hv-info/Koenig & Bauer AG-14730/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 16.06.23.pdf
+14442,2011,True,70.49,,data/Praesenzen_hv-info/BayWa AG-14442/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 15.06.11.pdf
+15663,2014,True,19.48,,data/Praesenzen_hv-info/MTU Aero Engines AG-15663/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 08.05.14.pdf
+14731,2011,True,79.25,,data/Praesenzen_hv-info/Fraport AG (Flughafen Frankfurt a. M. AG)-14731/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 01.06.11.pdf
+15619,2007,True,38.44,,data/Praesenzen_hv-info/Hannover Rück SE-15619/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 03.05.07.pdf
+11193,2006,True,38.41,,data/Praesenzen_hv-info/BASF SE-11193/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 04.05.06.pdf
+14554,2022,True,72.55,,data/Praesenzen_hv-info/BAUER AG-14554/ASM/HV-Beschluss zur außerordentlichen Hauptversammlung am 18.11.22.pdf
+11745,2012,True,56.4,,data/Praesenzen_hv-info/Jenoptik AG-11745/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 06.06.12.pdf
+14642,2014,True,66.97,,data/Praesenzen_hv-info/Centrotec SE-14642/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.14.pdf
+1368,2007,True,55.09,,data/Praesenzen_hv-info/Klöckner & Co SE-1368/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.06.07.pdf
+15203,2012,True,58.06,,data/Praesenzen_hv-info/RWE AG-15203/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 19.04.12.pdf
+15031,2015,True,80.1,,data/Praesenzen_hv-info/Nemetschek SE-15031/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.15.pdf
+15222,2011,True,54.72,,data/Praesenzen_hv-info/K+S Aktiengesellschaft-15222/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 11.05.11.pdf
+15358,2004,True,56.18,,data/Praesenzen_hv-info/ThyssenKrupp AG-15358/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.01.04.pdf
+14517,2013,True,57.53,,data/Praesenzen_hv-info/United Internet AG-14517/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 23.05.13.pdf
+14526,2013,True,31.12,,data/Praesenzen_hv-info/SolarWorld AG i.L.-14526/ASM/HV-Beschluss zur außerordentlichen Hauptversammlung am 07.08.13.pdf
+15674,2013,True,28.53,,data/Praesenzen_hv-info/Praktiker AG-15674/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 29.05.13.pdf
+14930,2009,True,60.91,,data/Praesenzen_hv-info/Hochtief AG-14930/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 07.05.09.pdf
+13084,2013,True,56.86,,data/Praesenzen_hv-info/CEWE Stiftung & Co. KGaA-13084/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 05.06.13.pdf
+15207,2017,True,80.96,,data/Praesenzen_hv-info/RHÖN-KLINIKUM AG-15207/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 07.06.17.pdf
+14737,2012,True,34.54,,data/Praesenzen_hv-info/Stada Arzneimittel AG-14737/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 30.05.12.pdf
+15179,2010,False,,,data/Praesenzen_hv-info/PUMA SE-15179/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.04.10.pdf
+15646,2014,True,49.89,,data/Praesenzen_hv-info/Sport1 Medien AG-15646/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 30.07.14.pdf

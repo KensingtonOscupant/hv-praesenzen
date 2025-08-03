@@ -8,7 +8,7 @@ load_dotenv()
 dataset_name = os.getenv("DATASET_NAME")
 
 # ---- 1. load the full dataset ------------------------------------------------
-df = pd.read_csv(f"data/{dataset_name}_full_set.csv")
+df = pd.read_csv(f"data/gold/{dataset_name}_full_set.csv")
 
 # Drop specified columns
 df = df.drop(columns=['correct', 'error', 'explanation', 'comment'])
@@ -40,9 +40,9 @@ dev_df, test_df = train_test_split(
 )
 
 # ---- 4. save to disk ---------------------------------------------------------
-train_df.to_csv(f"data/{dataset_name}_train_set.csv", index=False)
-dev_df.to_csv(f"data/{dataset_name}_dev_set.csv",   index=False)
-test_df.to_csv(f"data/{dataset_name}_test_set.csv", index=False)
+train_df.to_csv(f"data/gold/{dataset_name}_train_set.csv", index=False)
+dev_df.to_csv(f"data/gold/{dataset_name}_dev_set.csv",   index=False)
+test_df.to_csv(f"data/gold/{dataset_name}_test_set.csv", index=False)
 
 print(f"train: {len(train_df)} docs | dev: {len(dev_df)} | test: {len(test_df)}")
 
