@@ -1,7 +1,7 @@
-id,key_identity_id,company_name,min_share_capital,assembly_date,error,assembly_type,file_path,source,diff_stamm_vs_vorzug
-939,14765,Drägerwerk AG & Co. KGaA,48.12,27.04.16,,3,data/Praesenzen_hv-info/Drägerwerk AG & Co. KGaA-14765/ASM/HV-Beschluss zur gesonderten Versammlung am 27.04.16.pdf,MANUAL,0.0
-942,14765,Drägerwerk AG & Co. KGaA,,09.05.14,,1,data/Praesenzen_hv-info/Drägerwerk AG & Co. KGaA-14765/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 09.05.14.pdf,FILE_CORRUPTED,0.0
-1738,15665,SMA Solar Technology AG,84.6,,,1,data/Praesenzen_hv-info/SMA Solar Technology AG-15665/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 26.05.11.pdf,MANUAL,0.0
-1805,14705,Borussia Dortmund GmbH & Co. KGaA,,15.08.06,,2,data/Praesenzen_hv-info/Borussia Dortmund GmbH & Co. KGaA-14705/ASM/HV-Beschluss zur außerordentlichen Hauptversammlung am 15.08.06.pdf,FILE_CORRUPTED,0.0
-2104,14733,Deutsche Telekom AG,,03.05.06,,1,data/Praesenzen_hv-info/Deutsche Telekom AG-14733/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 03.05.06.pdf,FILE_CORRUPTED,0.0
-2191,15277,STRATEC SE,,20.05.09,,1,data/Praesenzen_hv-info/STRATEC SE-15277/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.09.pdf,FILE_CORRUPTED,0.0
+id,key_identity_id,company_name,min_share_capital,assembly_date,assembly_type,file_path,source,diff_stamm_vs_vorzug
+939,14765,Drägerwerk AG & Co. KGaA,48.12,27.04.16,3,data/Praesenzen_hv-info/Drägerwerk AG & Co. KGaA-14765/ASM/HV-Beschluss zur gesonderten Versammlung am 27.04.16.pdf,MANUAL,0.0
+942,14765,Drägerwerk AG & Co. KGaA,,09.05.14,1,data/Praesenzen_hv-info/Drägerwerk AG & Co. KGaA-14765/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 09.05.14.pdf,FILE_CORRUPTED,0.0
+1738,15665,SMA Solar Technology AG,84.6,,1,data/Praesenzen_hv-info/SMA Solar Technology AG-15665/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 26.05.11.pdf,MANUAL,0.0
+1805,14705,Borussia Dortmund GmbH & Co. KGaA,,15.08.06,2,data/Praesenzen_hv-info/Borussia Dortmund GmbH & Co. KGaA-14705/ASM/HV-Beschluss zur außerordentlichen Hauptversammlung am 15.08.06.pdf,FILE_CORRUPTED,0.0
+2104,14733,Deutsche Telekom AG,,03.05.06,1,data/Praesenzen_hv-info/Deutsche Telekom AG-14733/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 03.05.06.pdf,FILE_CORRUPTED,0.0
+2191,15277,STRATEC SE,,20.05.09,1,data/Praesenzen_hv-info/STRATEC SE-15277/ASM/HV-Beschluss zur ordentlichen Hauptversammlung am 20.05.09.pdf,FILE_CORRUPTED,0.0
