@@ -3,9 +3,10 @@
 ## Description
 This project evaluates the minimum base capital present in Annual Shareholder Meetings (ASMs) of German companies, achieving selective accuracy of 1.0 at a coverage of 0.94. The test set, representing a comprehensive sample, includes one report each from 165 of the companies assessed, drawn from a pool of approximately 3700 reports.
 
-**NB Jan 2026: Readme is still from when I first implemented this project in 2023. Refactored and cleaned codebase in Aug/Sep 2025. An (as of Aug '25) up-to-date leaderboard benchmarking the performance of different models on train/dev/test can be found [here](https://wandb.ai/fuels/agm_share_capital/weave/leaderboards?peekPath=%2Ffuels%2Fagm_share_capital%2Fleaderboards%2Ftrain_set_leaderboard).
+**NB Jan 2026**: Readme is still from when I first implemented this project in 2023. Refactored and cleaned codebase in Aug/Sep 2025. An (as of Aug '25) up-to-date leaderboard benchmarking the performance of different models on train/dev/test can be found [here](https://wandb.ai/fuels/agm_share_capital/weave/leaderboards?peekPath=%2Ffuels%2Fagm_share_capital%2Fleaderboards%2Ftrain_set_leaderboard).
 
---
+---
+
 [old readme starts here]
 
 ## Features
